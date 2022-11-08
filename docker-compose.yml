@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+    web:
+        build:
+            dockerfile: Dockerfile
+            context: .
+        depends_on: 
+            - postgres
+        environment: 
+            DATABASE_URL: postgres://testuser:password@postgres:5432/testnest
+            NODE_ENV: development
+            PORT: 3000
+        ports:
+            - "8080:3000"
+
+    postgres:
+        image: postgres:15.0
+        ports:
+            - "54321:5432"
+        environment: 
+            POSTGRES_USER: testuser
+            POSTGRES_PASSWORD: password
+            POSTGRES_DB: testnest
