@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CsvModule } from 'nest-csv-parser';
 import { TransactionEntity } from './models/transaction.entity';
 import { TransactionController } from './transaction.controller';
+import { TransactionService } from './transaction.service';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { TransactionController } from './transaction.controller';
     ]),
     CsvModule
   ],
-  controllers: [TransactionController]
+  controllers: [TransactionController],
+  providers: [TransactionService]
 })
 export class TransactionModule {}

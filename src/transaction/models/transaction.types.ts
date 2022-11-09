@@ -1,4 +1,4 @@
-export type ReportQuery = {
+export type ReportData = {
   monyear: string;
   source: string;
   sum: number;
